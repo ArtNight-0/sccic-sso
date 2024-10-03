@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Laravel\Passport\Client;
 
 class HomeController extends Controller
 {
@@ -23,9 +25,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $client = Client::all();
+        return view('home',compact('client'));
     }
 
     public function differentAccount(Request $request)
@@ -51,5 +54,14 @@ class HomeController extends Controller
         $protectedProperty = new \ReflectionProperty($this->app['auth'], 'guards');
         $protectedProperty->setAccessible(true);
         $protectedProperty->setValue($this->app['auth'], []);
+
+        $user = auth()->user();
+        if ($user) {
+            $user->tokens()->each(function ($token) {
+                $token->revoke();
+            });
+        }
+        
+        return redirect('http://laravel_sso_client.test/logout');
     }
 }
