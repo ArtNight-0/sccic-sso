@@ -5,8 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-warning text-white text-center">
-                        <h4>{{ __('OAUTH 2.2 SSO') }}</h4>
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4>{{ __('OAUTH 2.2 SSO SMART X PLATFORMS') }}</h4>
                     </div>
 
                     <div class="card-body p-4">
@@ -73,7 +73,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-warning btn-lg">
+                                    <button type="submit" class="btn btn-primary btn-lg">
                                         <i class="fas fa-sign-in-alt"></i> {{ __('Login') }}
                                     </button>
                                 </div>

@@ -39,5 +39,5 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/clients/{id}', [ClientController::class, 'deleteClient']);
     Route::get('/clients/{id}/edit', [ClientController::class, 'editClient']);
     Route::put('/clients/{id}', [ClientController::class, 'updateClient']);
-    
+
 });
