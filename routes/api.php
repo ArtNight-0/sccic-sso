@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
+use App\Http\Controllers\Api\Auth\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,3 +37,10 @@ Route::middleware('auth:api')->get('/logmeout', function (Request $request) {
         'session' => session()->all()
     ]);
 });
+
+// MANAJEMEN USER
+Route::get('/user-get', [UserController::class, 'getUser'])->name('user-get');
+Route::get('/user-get-id/{id}', [UserController::class, 'getUserId'])->name('user-get-id');
+Route::post('/user-post', [UserController::class, 'storeUser'])->name('user-post');
+Route::put('/user-update/{id}', [UserController::class, 'updateUser'])->name('user-update');
+Route::delete('/user-delete/{id}', [UserController::class, 'destroyUser'])->name('user-delete');

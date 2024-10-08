@@ -12,7 +12,7 @@ class ClientController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth'); 
+        $this->middleware('auth');
     }
 
     // Menampilkan view utama
@@ -26,7 +26,7 @@ class ClientController extends Controller
     {
         if ($request->ajax()) {
             $clients = Client::select(['id', 'user_id', 'name', 'secret', 'provider', 'redirect']);
-            
+
             return DataTables::of($clients)
                 ->addColumn('action', function ($client) {
                     return '
