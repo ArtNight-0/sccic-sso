@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
 use App\Http\Controllers\Api\Auth\UserController;
+use App\Http\Controllers\ManagementDashboard\ManagementDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,10 @@ Route::get('/user-get-id/{id}', [UserController::class, 'getUserId'])->name('use
 Route::post('/user-post', [UserController::class, 'storeUser'])->name('user-post');
 Route::put('/user-update/{id}', [UserController::class, 'updateUser'])->name('user-update');
 Route::delete('/user-delete/{id}', [UserController::class, 'destroyUser'])->name('user-delete');
+
+// MANAJEMEN DASHBOARD
+Route::get('/dashboard-get', [ManagementDashboardController::class, 'getDashboard'])->name('dashboard-get');
+Route::get('/dashboard-get-id/{id}', [ManagementDashboardController::class, 'getDashboardId'])->name('dashboard-get-id');
+Route::post('/dashboard-post', [ManagementDashboardController::class, 'storeDashboard'])->name('dashboard-post');
+Route::put('/dashboard-update/{id}', [ManagementDashboardController::class, 'updateDashboard'])->name('dashboard-update');
+Route::delete('/dashboard-delete/{id}', [ManagementDashboardController::class, 'destroyDashboard'])->name('dashboard-delete');

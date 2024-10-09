@@ -107,8 +107,7 @@ class UserController extends Controller
         $users->delete();
 
         return response()->json([
-            'message' => 'Data user berhasil dihapus.',
-            'data' => new UserResource($user)
+            'message' => 'Data user berhasil dihapus.'
         ], 200);
     }
 }
